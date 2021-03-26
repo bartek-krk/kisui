@@ -49,4 +49,9 @@ public class RandomPermutation implements Encoder{
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+    @Override
+    public void close() throws Exception {
+
+    }
 }

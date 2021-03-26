@@ -14,16 +14,20 @@ public class MainScreen {
     private JButton button4;
     private JLabel signature;
 
-    public MainScreen() {
+    public MainScreen(JFrame frame) {
+
         randomPermutationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame("Losowe Permutacje");
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.setContentPane(new RandomPermutationScreen().randomPermutationScreenPanel);
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
+                frame.setContentPane(new RandomPermutationScreen(frame).randomPermutationScreenPanel);
+                frame.revalidate();
+            }
+        });
+        rotNButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setContentPane(new RotNScreen(frame).rotNScreenPanel);
+                frame.revalidate();
             }
         });
     }

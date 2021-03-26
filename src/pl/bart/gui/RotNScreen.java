@@ -1,8 +1,11 @@
 package pl.bart.gui;
 
-import pl.bart.algorithm.RandomPermutation;
+import pl.bart.algorithm.RotN;
 import pl.bart.exception.InvalidInputException;
+import pl.bart.exception.InvalidOffsetException;
 import pl.bart.exception.handlers.InvalidInputHandler;
+import pl.bart.exception.handlers.InvalidOffsetHandler;
+import pl.bart.validator.OffsetValidator;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,8 +13,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
-public class RandomPermutationScreen {
-    public JPanel randomPermutationScreenPanel;
+public class RotNScreen {
+    public JPanel rotNScreenPanel;
     private JLabel signature;
     private JPanel panel;
     private JTextArea in;
@@ -26,12 +29,24 @@ public class RandomPermutationScreen {
     private JScrollPane keyScrollPane;
     private JButton returnButton;
     private JLabel header;
+    private JTextField offset;
+    private JLabel offsetLabel;
 
-    public RandomPermutationScreen(JFrame frame) {
+    public RotNScreen(JFrame frame) {
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try (RandomPermutation encoder = new RandomPermutation()){
+                int offsetValue = 0;
+
+                try {
+                    String in = offset.getText();
+                    if (OffsetValidator.validate(in)) offsetValue = Integer.parseInt(in);
+                } catch (InvalidOffsetException invalidOffsetException){
+                    invalidOffsetException.printStackTrace();
+                    new InvalidOffsetHandler().run();
+                }
+
+                try (RotN encoder = new RotN(offsetValue)){
                     out.setText(encoder.cipher(in.getText()));
                     Character[][] data = new Character[encoder.getCharacterMap().size()][2];
                     int i = 0;
