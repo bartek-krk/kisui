@@ -1,17 +1,16 @@
 package pl.bart;
 
-import pl.bart.algorithm.RandomPermutation;
-import pl.bart.exception.InvalidInputException;
+import pl.bart.gui.MainScreen;
+
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        RandomPermutation randomPermutation = new RandomPermutation();
-        try {
-            System.out.println(randomPermutation.cipher("asd 343"));
-            System.out.println(randomPermutation.getCharacterMap());
-        } catch (InvalidInputException e) {
-            e.printStackTrace();
-        }
+        JFrame frame = new JFrame("Kryptografia i Systemy Utajniania Informacji");
+        frame.setContentPane(new MainScreen().mainScreenPanel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setVisible(true);
     }
 }

@@ -9,13 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RandomPermutation {
+public class RandomPermutation implements Encoder{
     private final Map<Character,Character> characterMap;
 
     public RandomPermutation(){
         this.characterMap = createAlphabet();
     }
 
+    @Override
     public String cipher(String input) throws InvalidInputException {
         StringBuilder stringBuilder = new StringBuilder();
         if (InputValidator.validate(input)) for(char c : input.toCharArray()) stringBuilder.append(characterMap.get(c));
