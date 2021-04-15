@@ -3,11 +3,15 @@ package pl.bart.gui;
 import pl.bart.algorithm.RandomPermutation;
 import pl.bart.exception.InvalidInputException;
 import pl.bart.exception.handlers.InvalidInputHandler;
+import pl.bart.gui.listener.ComponentResizeListener;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class RandomPermutationScreen {
@@ -26,8 +30,25 @@ public class RandomPermutationScreen {
     private JScrollPane keyScrollPane;
     private JButton returnButton;
     private JLabel header;
+    private JPanel headerPanel;
 
     public RandomPermutationScreen(JFrame frame) {
+
+        List<JComponent> bigLettersResizeableComponents = Collections.singletonList(
+                this.header
+        );
+
+        List<JComponent> smallLettersComponents = Arrays.asList(
+                this.signature,
+                this.inLabel,
+                this.outLabel,
+                this.keyLabel,
+                this.runButton,
+                this.returnButton
+        );
+
+        randomPermutationScreenPanel.addComponentListener(new ComponentResizeListener(this.randomPermutationScreenPanel, bigLettersResizeableComponents, smallLettersComponents));
+
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

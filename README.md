@@ -1,2 +1,2 @@
-Repozytorium zadań z Laboratorium Kryptografii
+Repozytorium zadań z Laboratorium Kryptografii  
 Cryptography Lab Tasks' Repository

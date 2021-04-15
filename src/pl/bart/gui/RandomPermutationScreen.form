@@ -8,12 +8,16 @@
       <minimumSize width="779" height="249"/>
       <preferredSize width="825" height="964"/>
     </properties>
-    <border type="none"/>
+    <border type="empty">
+      <size top="5" left="5" bottom="5" right="5"/>
+    </border>
     <children>
       <grid id="48a4d" binding="panel" layout-manager="GridBagLayout">
         <constraints border-constraint="Center"/>
         <properties/>
-        <border type="none"/>
+        <border type="empty">
+          <size top="5" left="5" bottom="5" right="5"/>
+        </border>
         <children>
           <component id="d7965" class="javax.swing.JLabel" binding="inLabel">
             <constraints>
@@ -142,22 +146,26 @@
           <text value="Bartosz Łukasik - Inżynieria Biomedyczna AGH"/>
         </properties>
       </component>
-      <grid id="2defb" layout-manager="BorderLayout" hgap="0" vgap="0">
+      <grid id="2defb" binding="headerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="North"/>
         <properties/>
-        <border type="none"/>
+        <border type="empty">
+          <size top="5" left="5" bottom="5" right="5"/>
+        </border>
         <children>
-          <component id="ab2da" class="javax.swing.JLabel" binding="header">
-            <constraints border-constraint="Center"/>
-            <properties>
-              <font size="65" style="3"/>
-              <text value="Losowe permutacje"/>
-            </properties>
-          </component>
           <component id="9c717" class="javax.swing.JButton" binding="returnButton">
             <constraints border-constraint="West"/>
             <properties>
               <text value="Powrót"/>
+            </properties>
+          </component>
+          <component id="ab2da" class="javax.swing.JLabel" binding="header">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <alignmentX value="0.0"/>
+              <font size="65" style="3"/>
+              <requestFocusEnabled value="false"/>
+              <text value="Losowe permutacje"/>
             </properties>
           </component>
         </children>

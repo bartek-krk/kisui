@@ -7,7 +7,9 @@
     <properties>
       <enabled value="true"/>
     </properties>
-    <border type="none"/>
+    <border type="empty">
+      <size top="5" left="5" bottom="5" right="5"/>
+    </border>
     <children>
       <component id="28ac5" class="javax.swing.JLabel" binding="header">
         <constraints border-constraint="North"/>
@@ -32,7 +34,7 @@
               <text value="Losowe Permutacje"/>
             </properties>
           </component>
-          <component id="19c9" class="javax.swing.JButton" binding="button3" default-binding="true">
+          <component id="19c9" class="javax.swing.JButton" binding="lab3PlaceholderButton" default-binding="true">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
               <gridbag weightx="100.0" weighty="100.0"/>
@@ -40,10 +42,10 @@
             <properties>
               <enabled value="false"/>
               <font size="36"/>
-              <text value="Button"/>
+              <text value="lab3 placeholder"/>
             </properties>
           </component>
-          <component id="327df" class="javax.swing.JButton" binding="button4" default-binding="true">
+          <component id="327df" class="javax.swing.JButton" binding="lab4PlaceholderButton" default-binding="true">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
               <gridbag weightx="100.0" weighty="100.0"/>
@@ -51,7 +53,7 @@
             <properties>
               <enabled value="false"/>
               <font size="36"/>
-              <text value="Button"/>
+              <text value="lab4 placeholder"/>
             </properties>
           </component>
           <component id="3321a" class="javax.swing.JButton" binding="rotNButton">

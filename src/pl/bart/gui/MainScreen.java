@@ -1,8 +1,13 @@
 package pl.bart.gui;
 
+import pl.bart.gui.listener.ComponentResizeListener;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class MainScreen {
     public JPanel mainScreenPanel;
@@ -10,11 +15,25 @@ public class MainScreen {
     private JPanel choicePanel;
     private JButton rotNButton;
     private JButton randomPermutationButton;
-    private JButton button3;
-    private JButton button4;
+    private JButton lab3PlaceholderButton;
+    private JButton lab4PlaceholderButton;
     private JLabel signature;
 
     public MainScreen(JFrame frame) {
+
+        List<JComponent> bigLettersResizeableComponents = Arrays.asList(
+                this.header,
+                this.randomPermutationButton,
+                this.rotNButton,
+                this.lab3PlaceholderButton,
+                this.lab4PlaceholderButton
+        );
+
+        List<JComponent> smallLettersComponents = Collections.singletonList(
+                this.signature
+        );
+
+        mainScreenPanel.addComponentListener(new ComponentResizeListener(this.mainScreenPanel, bigLettersResizeableComponents, smallLettersComponents));
 
         randomPermutationButton.addActionListener(new ActionListener() {
             @Override

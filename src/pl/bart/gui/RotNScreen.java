@@ -5,12 +5,16 @@ import pl.bart.exception.InvalidInputException;
 import pl.bart.exception.InvalidOffsetException;
 import pl.bart.exception.handlers.InvalidInputHandler;
 import pl.bart.exception.handlers.InvalidOffsetHandler;
+import pl.bart.gui.listener.ComponentResizeListener;
 import pl.bart.validator.OffsetValidator;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 public class RotNScreen {
@@ -31,8 +35,25 @@ public class RotNScreen {
     private JLabel header;
     private JTextField offset;
     private JLabel offsetLabel;
+    private JPanel headerPanel;
 
     public RotNScreen(JFrame frame) {
+
+        List<JComponent> bigLettersResizeableComponents = Collections.singletonList(
+                this.header
+        );
+
+        List<JComponent> smallLettersComponents = Arrays.asList(
+                this.signature,
+                this.inLabel,
+                this.outLabel,
+                this.keyLabel,
+                this.runButton,
+                this.returnButton,
+                this.offsetLabel
+        );
+
+        rotNScreenPanel.addComponentListener(new ComponentResizeListener(this.rotNScreenPanel, bigLettersResizeableComponents, smallLettersComponents));
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
