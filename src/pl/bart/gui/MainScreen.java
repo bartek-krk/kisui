@@ -33,21 +33,20 @@ public class MainScreen {
                 this.signature
         );
 
-        mainScreenPanel.addComponentListener(new ComponentResizeListener(this.mainScreenPanel, bigLettersResizeableComponents, smallLettersComponents));
+        mainScreenPanel.addComponentListener(
+                new ComponentResizeListener(
+                        this.mainScreenPanel,
+                        bigLettersResizeableComponents,
+                        smallLettersComponents)
+        );
 
-        randomPermutationButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new RandomPermutationScreen(frame).randomPermutationScreenPanel);
-                frame.revalidate();
-            }
+        randomPermutationButton.addActionListener(e -> {
+            frame.setContentPane(new RandomPermutationScreen(frame).randomPermutationScreenPanel);
+            frame.revalidate();
         });
-        rotNButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new RotNScreen(frame).rotNScreenPanel);
-                frame.revalidate();
-            }
+        rotNButton.addActionListener(e -> {
+            frame.setContentPane(new RotNScreen(frame).rotNScreenPanel);
+            frame.revalidate();
         });
     }
 }

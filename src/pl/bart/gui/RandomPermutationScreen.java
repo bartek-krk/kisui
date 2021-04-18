@@ -47,37 +47,35 @@ public class RandomPermutationScreen {
                 this.returnButton
         );
 
-        randomPermutationScreenPanel.addComponentListener(new ComponentResizeListener(this.randomPermutationScreenPanel, bigLettersResizeableComponents, smallLettersComponents));
+        randomPermutationScreenPanel.addComponentListener(
+                new ComponentResizeListener(
+                        this.randomPermutationScreenPanel,
+                        bigLettersResizeableComponents,
+                        smallLettersComponents)
+        );
 
-        runButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try (RandomPermutation encoder = new RandomPermutation()){
-                    out.setText(encoder.cipher(in.getText()));
-                    Character[][] data = new Character[encoder.getCharacterMap().size()][2];
-                    int i = 0;
-                    for(Map.Entry<Character,Character> entry : encoder.getCharacterMap().entrySet()) {
-                        data[i][0] = entry.getKey();
-                        data[i][1] = entry.getValue();
-                        i++;
-                    }
-
-                    DefaultTableModel model = (DefaultTableModel) key.getModel();
-                    model.setDataVector(data, new String[]{"Przed zakodowaniem", "Po zakodowaniu"});
-                } catch (InvalidInputException invalidInputException) {
-                    invalidInputException.printStackTrace();
-                    new InvalidInputHandler().run();
-                } catch (Exception exception) {
-                    exception.printStackTrace();
+        runButton.addActionListener(e -> {
+            try (RandomPermutation encoder = new RandomPermutation()){
+                out.setText(encoder.cipher(in.getText()));
+                Character[][] data = new Character[encoder.getCharacterMap().size()][2];
+                int i = 0;
+                for(Map.Entry<Character,Character> entry : encoder.getCharacterMap().entrySet()) {
+                    data[i][0] = entry.getKey();
+                    data[i][1] = entry.getValue();
+                    i++;
                 }
+
+                DefaultTableModel model = (DefaultTableModel) key.getModel();
+                model.setDataVector(data, new String[]{"Przed zakodowaniem", "Po zakodowaniu"});
+            } catch (InvalidInputException invalidInputException) {
+                new InvalidInputHandler(invalidInputException).run();
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         });
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new MainScreen(frame).mainScreenPanel);
-                frame.revalidate();
-            }
+        returnButton.addActionListener(e -> {
+            frame.setContentPane(new MainScreen(frame).mainScreenPanel);
+            frame.revalidate();
         });
     }
 }

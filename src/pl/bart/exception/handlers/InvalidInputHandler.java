@@ -1,14 +1,23 @@
 package pl.bart.exception.handlers;
 
+import pl.bart.exception.InvalidInputException;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class InvalidInputHandler implements Runnable{
+public class InvalidInputHandler implements Runnable {
+
+    InvalidInputException causingException;
+
+    public InvalidInputHandler(InvalidInputException causingException) {
+        this.causingException = causingException;
+    }
+
     @Override
     public void run() {
         Toolkit.getDefaultToolkit().beep();
         JOptionPane.showMessageDialog(null,
-                "Dozwolone są tylko znaki alfabetu angielskiego i liczby!",
+                causingException.getReason().message,
                 "Błąd",
                 JOptionPane.WARNING_MESSAGE);
     }

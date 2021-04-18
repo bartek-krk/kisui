@@ -53,46 +53,44 @@ public class RotNScreen {
                 this.offsetLabel
         );
 
-        rotNScreenPanel.addComponentListener(new ComponentResizeListener(this.rotNScreenPanel, bigLettersResizeableComponents, smallLettersComponents));
-        runButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int offsetValue = 0;
+        rotNScreenPanel.addComponentListener(
+                new ComponentResizeListener(
+                        this.rotNScreenPanel,
+                        bigLettersResizeableComponents,
+                        smallLettersComponents)
+        );
 
-                try {
-                    String in = offset.getText();
-                    if (OffsetValidator.validate(in)) offsetValue = Integer.parseInt(in);
-                } catch (InvalidOffsetException invalidOffsetException){
-                    invalidOffsetException.printStackTrace();
-                    new InvalidOffsetHandler().run();
+        runButton.addActionListener(e -> {
+            int offsetValue = 0;
+
+            try {
+                String in = offset.getText();
+                if (OffsetValidator.validate(in)) offsetValue = Integer.parseInt(in);
+            } catch (InvalidOffsetException invalidOffsetException){
+                new InvalidOffsetHandler().run();
+            }
+
+            try (RotN encoder = new RotN(offsetValue)){
+                out.setText(encoder.cipher(in.getText()));
+                Character[][] data = new Character[encoder.getCharacterMap().size()][2];
+                int i = 0;
+                for(Map.Entry<Character,Character> entry : encoder.getCharacterMap().entrySet()) {
+                    data[i][0] = entry.getKey();
+                    data[i][1] = entry.getValue();
+                    i++;
                 }
 
-                try (RotN encoder = new RotN(offsetValue)){
-                    out.setText(encoder.cipher(in.getText()));
-                    Character[][] data = new Character[encoder.getCharacterMap().size()][2];
-                    int i = 0;
-                    for(Map.Entry<Character,Character> entry : encoder.getCharacterMap().entrySet()) {
-                        data[i][0] = entry.getKey();
-                        data[i][1] = entry.getValue();
-                        i++;
-                    }
-
-                    DefaultTableModel model = (DefaultTableModel) key.getModel();
-                    model.setDataVector(data, new String[]{"Przed zakodowaniem", "Po zakodowaniu"});
-                } catch (InvalidInputException invalidInputException) {
-                    invalidInputException.printStackTrace();
-                    new InvalidInputHandler().run();
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                }
+                DefaultTableModel model = (DefaultTableModel) key.getModel();
+                model.setDataVector(data, new String[]{"Przed zakodowaniem", "Po zakodowaniu"});
+            } catch (InvalidInputException invalidInputException) {
+                new InvalidInputHandler(invalidInputException).run();
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         });
-        returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setContentPane(new MainScreen(frame).mainScreenPanel);
-                frame.revalidate();
-            }
+        returnButton.addActionListener(e -> {
+            frame.setContentPane(new MainScreen(frame).mainScreenPanel);
+            frame.revalidate();
         });
     }
 }
