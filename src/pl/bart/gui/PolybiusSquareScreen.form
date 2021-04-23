@@ -66,6 +66,7 @@
                   <component id="206e3" class="javax.swing.JTextArea" binding="in">
                     <constraints/>
                     <properties>
+                      <lineWrap value="true"/>
                       <rows value="75"/>
                     </properties>
                   </component>
@@ -93,6 +94,7 @@
                     <properties>
                       <editable value="false"/>
                       <enabled value="true"/>
+                      <lineWrap value="true"/>
                       <rows value="75"/>
                       <wrapStyleWord value="false"/>
                     </properties>
@@ -134,7 +136,10 @@
                 <children>
                   <component id="5bce5" class="javax.swing.JTable" binding="table">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <enabled value="true"/>
+                      <fillsViewportHeight value="false"/>
+                    </properties>
                   </component>
                 </children>
               </scrollpane>
