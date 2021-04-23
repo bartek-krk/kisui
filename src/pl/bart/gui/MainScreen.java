@@ -3,8 +3,6 @@ package pl.bart.gui;
 import pl.bart.gui.listener.ComponentResizeListener;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +13,7 @@ public class MainScreen {
     private JPanel choicePanel;
     private JButton rotNButton;
     private JButton randomPermutationButton;
-    private JButton lab3PlaceholderButton;
+    private JButton polybiusSquareButton;
     private JButton lab4PlaceholderButton;
     private JLabel signature;
 
@@ -25,7 +23,7 @@ public class MainScreen {
                 this.header,
                 this.randomPermutationButton,
                 this.rotNButton,
-                this.lab3PlaceholderButton,
+                this.polybiusSquareButton,
                 this.lab4PlaceholderButton
         );
 
@@ -46,6 +44,10 @@ public class MainScreen {
         });
         rotNButton.addActionListener(e -> {
             frame.setContentPane(new RotNScreen(frame).rotNScreenPanel);
+            frame.revalidate();
+        });
+        polybiusSquareButton.addActionListener(e -> {
+            frame.setContentPane(new PolybiusSquareScreen(frame).polybiusSquareScreenPanel);
             frame.revalidate();
         });
     }

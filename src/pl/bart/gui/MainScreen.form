@@ -34,15 +34,15 @@
               <text value="Losowe Permutacje"/>
             </properties>
           </component>
-          <component id="19c9" class="javax.swing.JButton" binding="lab3PlaceholderButton" default-binding="true">
+          <component id="19c9" class="javax.swing.JButton" binding="polybiusSquareButton">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
               <gridbag weightx="100.0" weighty="100.0"/>
             </constraints>
             <properties>
-              <enabled value="false"/>
+              <enabled value="true"/>
               <font size="36"/>
-              <text value="lab3 placeholder"/>
+              <text value="Kwadrat Polibiusza"/>
             </properties>
           </component>
           <component id="327df" class="javax.swing.JButton" binding="lab4PlaceholderButton" default-binding="true">
