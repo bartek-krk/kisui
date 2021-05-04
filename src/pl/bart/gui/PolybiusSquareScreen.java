@@ -1,5 +1,6 @@
 package pl.bart.gui;
 
+import pl.bart.algorithm.Encoder;
 import pl.bart.algorithm.PolybiusSquare;
 import pl.bart.exception.InvalidInputException;
 import pl.bart.exception.handlers.InvalidInputHandler;
@@ -13,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class PolybiusSquareScreen {
     public JPanel polybiusSquareScreenPanel;
@@ -57,7 +59,7 @@ public class PolybiusSquareScreen {
         );
 
         runButton.addActionListener(e -> {
-            try(PolybiusSquare encoder = new PolybiusSquare()) {
+            try(Encoder<Map<Character,Coordinates>> encoder = new PolybiusSquare()) {
                 out.setText(encoder.cipher(in.getText()));
 
                 Character[][] data = new Character[9][9];
@@ -69,7 +71,7 @@ public class PolybiusSquareScreen {
                 }
 
 
-                encoder.getAlphabet().entrySet().forEach(entry -> {
+                encoder.getCharacterMap().entrySet().forEach(entry -> {
                     int x = entry.getValue().getX()+1;
                     int y = entry.getValue().getY()+1;
 

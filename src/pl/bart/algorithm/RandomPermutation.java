@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RandomPermutation implements Encoder{
+public class RandomPermutation implements Encoder<Map<Character,Character>> {
     private final Map<Character,Character> characterMap;
 
     public RandomPermutation(){
@@ -46,12 +46,4 @@ public class RandomPermutation implements Encoder{
         return alphabet;
     }
 
-    private int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
-
-    @Override
-    public void close() throws Exception {
-
-    }
 }

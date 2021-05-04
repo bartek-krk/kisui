@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PolybiusSquare implements Encoder {
+public class PolybiusSquare implements Encoder<Map<Character,Coordinates>> {
 
     public static final int SQUARE_SIZE = 8;
 
@@ -20,7 +20,7 @@ public class PolybiusSquare implements Encoder {
         this.alphabet = createAlphabet();
     }
 
-    public Map<Character, Coordinates> getAlphabet() {
+    public Map<Character, Coordinates> getCharacterMap() {
         return alphabet;
     }
 
@@ -60,14 +60,4 @@ public class PolybiusSquare implements Encoder {
 
         return alphabet;
     }
-
-    @Override
-    public void close() throws Exception {
-
-    }
-
-    private int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
-
 }

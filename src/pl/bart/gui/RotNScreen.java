@@ -1,5 +1,6 @@
 package pl.bart.gui;
 
+import pl.bart.algorithm.Encoder;
 import pl.bart.algorithm.RotN;
 import pl.bart.exception.InvalidInputException;
 import pl.bart.exception.InvalidOffsetException;
@@ -70,7 +71,7 @@ public class RotNScreen {
                 new InvalidOffsetHandler().run();
             }
 
-            try (RotN encoder = new RotN(offsetValue)){
+            try (Encoder<Map<Character,Character>> encoder = new RotN(offsetValue)){
                 out.setText(encoder.cipher(in.getText()));
                 Character[][] data = new Character[encoder.getCharacterMap().size()][2];
                 int i = 0;

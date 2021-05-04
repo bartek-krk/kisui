@@ -1,5 +1,6 @@
 package pl.bart.gui;
 
+import pl.bart.algorithm.Encoder;
 import pl.bart.algorithm.RandomPermutation;
 import pl.bart.exception.InvalidInputException;
 import pl.bart.exception.handlers.InvalidInputHandler;
@@ -55,7 +56,7 @@ public class RandomPermutationScreen {
         );
 
         runButton.addActionListener(e -> {
-            try (RandomPermutation encoder = new RandomPermutation()){
+            try (Encoder<Map<Character,Character>> encoder = new RandomPermutation()){
                 out.setText(encoder.cipher(in.getText()));
                 Character[][] data = new Character[encoder.getCharacterMap().size()][2];
                 int i = 0;

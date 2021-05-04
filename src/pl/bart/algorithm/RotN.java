@@ -7,7 +7,7 @@ import pl.bart.validator.InputValidator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RotN implements Encoder {
+public class RotN implements Encoder<Map<Character,Character>> {
 
     private final int offset;
     private final Map<Character,Character> characterMap;
@@ -65,8 +65,4 @@ public class RotN implements Encoder {
         return alphabet;
     }
 
-    @Override
-    public void close() throws Exception {
-
-    }
 }
