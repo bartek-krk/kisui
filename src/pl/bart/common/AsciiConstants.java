@@ -10,4 +10,5 @@ public class AsciiConstants {
     public static final int WHITESPACE = 32;
     public static final int DIGIT_LENGTH = 10;
     public static final int ALPHABET_LENGTH = 26;
+    public static final int UNDERSCORE = 95;
 }

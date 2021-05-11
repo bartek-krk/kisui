@@ -14,7 +14,7 @@ public class MainScreen {
     private JButton rotNButton;
     private JButton randomPermutationButton;
     private JButton polybiusSquareButton;
-    private JButton lab4PlaceholderButton;
+    private JButton playfairButton;
     private JLabel signature;
 
     public MainScreen(JFrame frame) {
@@ -24,7 +24,7 @@ public class MainScreen {
                 this.randomPermutationButton,
                 this.rotNButton,
                 this.polybiusSquareButton,
-                this.lab4PlaceholderButton
+                this.playfairButton
         );
 
         List<JComponent> smallLettersComponents = Collections.singletonList(
@@ -48,6 +48,10 @@ public class MainScreen {
         });
         polybiusSquareButton.addActionListener(e -> {
             frame.setContentPane(new PolybiusSquareScreen(frame).polybiusSquareScreenPanel);
+            frame.revalidate();
+        });
+        playfairButton.addActionListener(e -> {
+            frame.setContentPane(new PlayfairScreen(frame).playfairScreenPanel);
             frame.revalidate();
         });
     }

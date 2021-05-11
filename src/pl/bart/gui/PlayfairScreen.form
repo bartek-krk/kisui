@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="pl.bart.gui.PlayfairScreen">
+  <grid id="27dc6" binding="playfairScreenPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="690" height="555"/>
+    </constraints>
+    <properties/>
+    <border type="empty">
+      <size top="5" left="5" bottom="5" right="5"/>
+    </border>
+    <children>
+      <grid id="18c77" binding="headerPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="empty">
+          <size top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children>
+          <component id="8549a" class="javax.swing.JButton" binding="returnButton">
+            <constraints border-constraint="West"/>
+            <properties>
+              <text value="Powrót"/>
+            </properties>
+          </component>
+          <component id="c940a" class="javax.swing.JLabel" binding="header">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <font size="65" style="3"/>
+              <text value="Szyfr Playfaira"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="785e2" binding="panel" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="empty">
+          <size top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children>
+          <grid id="349dd" binding="translationPanel" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="100.0" weighty="100.0"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="60f12" class="javax.swing.JLabel" binding="inLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Tekst do zaszyfrowania"/>
+                </properties>
+              </component>
+              <scrollpane id="a8e2" binding="inScrollPane">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="100.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="206e3" class="javax.swing.JTextArea" binding="in">
+                    <constraints/>
+                    <properties>
+                      <lineWrap value="true"/>
+                      <rows value="75"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="e5149" class="javax.swing.JLabel" binding="outLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Zaszyfrowany tekst"/>
+                </properties>
+              </component>
+              <scrollpane id="46d6e" binding="outScrollPane">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="100.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="c5433" class="javax.swing.JTextArea" binding="out">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <enabled value="true"/>
+                      <lineWrap value="true"/>
+                      <rows value="75"/>
+                      <wrapStyleWord value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="ee4d9" class="javax.swing.JButton" binding="runButton">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Zaszyfruj"/>
+                </properties>
+              </component>
+              <hspacer id="3bf1d">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+            </children>
+          </grid>
+          <grid id="6e6f2" binding="tablePanel" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="100.0" weighty="100.0"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <scrollpane id="f98d7" binding="tableScrollPane">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="100.0"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="5bce5" class="javax.swing.JTable" binding="table">
+                    <constraints/>
+                    <properties>
+                      <enabled value="true"/>
+                      <fillsViewportHeight value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <component id="5cf40" class="javax.swing.JLabel" binding="tableLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="100.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Tablica"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <component id="70213" class="javax.swing.JLabel" binding="signature">
+        <constraints border-constraint="South"/>
+        <properties>
+          <font size="16"/>
+          <text value="Bartosz Łukasik - Inżynieria Biomedyczna AGH"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
